@@ -9,7 +9,6 @@ phases:
     commands:
       - echo Pre Build started on `date`
       - npm --version
-      - react-native link
       - pwd
       
   build:
