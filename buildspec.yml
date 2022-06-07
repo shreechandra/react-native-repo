@@ -1,25 +1,22 @@
 version: 0.2
 phases:
   install:
-    runtime-versions:
-      nodejs: 12
     commands:
-      - pwd
+      - echo Install started on `date`
   pre_build:
     commands:
+      - npm install
       - echo Pre Build started on `date`
-      - npm --version
-      - pwd
-      
   build:
     commands:
       - echo Build started on `date`
+      - chmod +x gradlew
       - ./gradlew clean
-      - ./gradlew assembleRelease
+      - ./gradlew assembleDebug
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - /app/build/outputs/apk/release/*.apk
-  discard-paths: yes
+    - '**/*.apk'
+discard-paths: "yes"
