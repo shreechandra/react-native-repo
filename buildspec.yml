@@ -1,4 +1,5 @@
 version: 0.2
+
 phases:
   install:
     commands:
@@ -7,16 +8,21 @@ phases:
     commands:
       - npm install
       - echo Pre Build started on `date`
+     
   build:
     commands:
       - echo Build started on `date`
+   
       - chmod +x gradlew
       - ./gradlew clean
+    
       - ./gradlew assembleDebug
+      
+  
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
     - '**/*.apk'
-discard-paths: "yes"
+discard-paths: "yes"    
