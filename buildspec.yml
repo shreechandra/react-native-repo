@@ -6,7 +6,7 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - npm install
-      -mpm run build
+      - npm run build
       - npm install -g @angular/cli@10.0.8
   build:
     commands:
