@@ -6,10 +6,10 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - npm install
-      - npm run build
       - npm install -g @angular/cli@10.0.8
   build:
     commands:
+      - npm run build
       - echo "Building Angular project..."
      
 artifacts:
