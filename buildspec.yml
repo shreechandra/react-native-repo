@@ -16,8 +16,17 @@ phases:
   
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed on `date'
+     
 artifacts:
   files:
-    - ./build_output/**/*.apk
-discard-paths: "yes"    
+    -  app/build/outputs/apk/app-debug.apk
+discard-paths: "yes"
+
+
+
+
+
+
+
+
