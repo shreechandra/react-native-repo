@@ -20,14 +20,3 @@ artifacts:
   files:
     - '**/*.apk'
 discard-paths: "yes"
-
-
-            
-
-
-
-
-
-
-
-
