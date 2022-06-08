@@ -1,18 +1,5 @@
 version: 0.2
-phases:
-  pre_build:
-    commands:
-      - echo Pre Build started on `date`
-      - npm --version
-      
-  build:
-    commands:
-      - echo Build started on `date`
-      - ./gradlew clean
-      - ./gradlew assembleRelease
-  post_build:
-    commands:
-      - echo Build completed on `date`
+
 artifacts:
   files:
     - /app/build/outputs/apk/release/*.apk
