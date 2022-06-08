@@ -1,15 +1,1 @@
-version: 0.2
 
-phases:
-  
-  commands:
-    - npm install
-  build:
-    commands:
-      - npm run build
-      - echo "Building Angular project..."
-artifacts:
-  files:
-      -"**/*"
-  discard-paths: no
-  base_directory: build
