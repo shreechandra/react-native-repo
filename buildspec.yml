@@ -3,6 +3,7 @@ phases:
   install:
     runtime-versions: 
       android: 29
+      java: corretto8
       nodejs: 12
    pre_build:
     commands:
