@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     commands:
@@ -7,22 +6,20 @@ phases:
   pre_build:
     commands:
       - npm install
+      - npm install -g react-native-cli
       - echo Pre Build started on `date`
-     
   build:
     commands:
       - echo Build started on `date`
-   
-      - chmod +x gradlew
-      - ./gradlew clean
-    
+      - react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+      - cd android
       - ./gradlew assembleDebug
-      
-  
+
+ 
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - '**/*.apk'
-  discard-paths: "yes"  
+    -DemoApp/android/app/build/outputs/apk/debug/app-debug.apk
+discard-paths: "yes"
