@@ -7,7 +7,6 @@ phases:
   pre_build:
     commands:
       - npm install
-      - npm i @react-native-community/cli-platform-android
       - echo Pre Build started on `date`
      
   build:
@@ -15,7 +14,7 @@ phases:
       - echo Build started on `date`
    
       - chmod +x gradlew
-      # - ./gradlew clean
+      - ./gradlew clean
     
       - ./gradlew assembleDebug
       
@@ -26,4 +25,4 @@ phases:
 artifacts:
   files:
     - '**/*.apk'
-  discard-paths: "yes"  
+  discard-paths: "yes"    
