@@ -1,21 +1,16 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+      nodejs: 12
     commands:
-      - echo Install started on `date`
-  pre_build:
-    commands:
+      - echo "Installing dependencies..."
       - npm install
-      - echo Pre Build started on `date`
+      - npm install -g @angular/cli@10.0.8
   build:
     commands:
-      - echo Build started on `date`
-      - chmod +x gradlew
-      - ./gradlew clean
-      - ./gradlew assembleDebug
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - echo "Building Angular project..."
+     
 artifacts:
   files:
     - '**/*'
