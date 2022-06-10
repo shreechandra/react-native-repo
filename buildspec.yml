@@ -1,18 +1,27 @@
 version: 0.2
 phases:
-  install:
+   install:
+    runtime-versions:
+      android: 29
+      java: corretto8
+      nodejs: 10
     commands:
-      - echo Install started on `date`
+      - pwd
   pre_build:
     commands:
-      - npm install
       - echo Pre Build started on `date`
+      - npm --version
+      - npm install -g react-native-cli
+      - yarn
+      - react-native link
+      - cd android
+      - pwd
+      
   build:
     commands:
       - echo Build started on `date`
-      - chmod +x gradlew
       - ./gradlew clean
-      - ./gradlew assembleDebug
+      - ./gradlew assembleRelease
   post_build:
     commands:
       - echo Build completed on `date`
