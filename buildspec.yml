@@ -1,30 +1,23 @@
+# Specifies what build spec version this file is.
+# This helps AWS CodePipeline parse the file correctly.
+# Keep this at 0.2
 version: 0.2
+# We can listen for specific phases and execute commands per phase.
 phases:
-  install:
-    runtime-versions:
-      android: 29
-      java: corretto11
-      nodejs: 10
-    commands:
-      - pwd
+  # The build server won't have access to our node_modules folder
+  # This is because we have it inside of our .gitignore file
+  # To give our build server access, we can simply run "npm install"
   pre_build:
     commands:
-      - echo Pre Build started on `date`
-      - npm --version
-      - npm install -g react-native-cli
-      - yarn
-      - react-native link
-      - cd android
-      - pwd
-      
+      - npm install
+  # Now we want to actually build our React app
   build:
-    commands:
-      - echo Build started on `date`
-      - ./gradlew clean
-      - ./gradlew assembleRelease
-  post_build:
-    commands:
-      - echo Build completed on `date`
+   commands:
+      - npm run build
+# Artifacts will specify what files will be uploaded to s3
+# This will include all files within the "build" folder
 artifacts:
   files:
-    - '**/*.apk
+    - '**/*'
+  discard-paths: no
+  base-directory: build
