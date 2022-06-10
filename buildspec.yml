@@ -1,31 +1,13 @@
-version: 0.2
+version: 0.1
+
 phases:
-   install:
-    runtime-versions:
-      android: 29
-      java: corretto8
-      nodejs: 10
-      
-  pre_build:
-    commands:
-      - echo Pre Build started on `date`
-      - npm --version
-      - npm install -g react-native-cli
-      - yarn
-      - react-native link
-      - cd android
-      - pwd
-      
   build:
     commands:
-      - echo Build started on `date`
-      - ./gradlew clean
-      - ./gradlew assembleRelease
-  post_build:
-    commands:
-      - echo Build completed on `date`
-artifacts:
-  files:
-    - '**/*.apk'
-discard-paths: "yes"
+      - aws s3 cp --recursive public/ s3://$WEBSITE_S3_BUCKET/public/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+      - sed -i -e "s|assets/|$WEBSITE_S3_PREFIX/public/assets/|g" public/index.html
+      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.json
 
+artifacts:
+  type: zip
+  files:
+    - template-export.json
