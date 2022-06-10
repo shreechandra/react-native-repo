@@ -3,7 +3,7 @@ phases:
   install:
     runtime-versions:
       android: 29
-      java: corretto8
+      java: corretto11
       nodejs: 10
     commands:
       - pwd
@@ -27,5 +27,5 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - /app/build/outputs/apk/release/*.apk
+    - '**/*.apk
   discard-paths: yes
