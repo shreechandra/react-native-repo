@@ -18,7 +18,7 @@ phases:
 # This will include all files within the "build" folder
 
   artifacts
-    - '**/*.apk'
+    - "**/*.apk"
   discard-paths: "yes"    
   
  
