@@ -16,8 +16,8 @@ phases:
       - npm run build
 # Artifacts will specify what files will be uploaded to s3
 # This will include all files within the "build" folder
-artifacts:
+
    files:
-        - '**/*'
+        - "**/*.apk"
   discard-paths: yes
   base-directory: build
