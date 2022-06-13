@@ -19,5 +19,5 @@ phases:
 
    files:
         - "**/*.apk"
-  discard-paths: yes
+  
   base-directory: build
