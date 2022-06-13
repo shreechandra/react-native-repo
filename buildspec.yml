@@ -17,7 +17,9 @@ phases:
 # Artifacts will specify what files will be uploaded to s3
 # This will include all files within the "build" folder
 
-   files:
-        - "**/*.apk"
+  artifacts:
+     files:
+    - '**/*.apk'
+  discard-paths: "yes"    
   
  
