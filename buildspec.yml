@@ -20,4 +20,4 @@ phases:
    files:
         - "**/*.apk"
   
-  base-directory: build
+ 
